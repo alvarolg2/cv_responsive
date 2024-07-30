@@ -4,13 +4,21 @@ import 'package:cv_responsive/ui/views/home/home_view.dart';
 import 'package:cv_responsive/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:cv_responsive/ui/views/about_me/about_me_view.dart';
+import 'package:cv_responsive/ui/views/experience/experience_view.dart';
+import 'package:cv_responsive/ui/views/education/education_view.dart';
+import 'package:cv_responsive/ui/views/skill/skill_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: AboutMeView),
+    MaterialRoute(page: ExperienceView),
+    MaterialRoute(page: EducationView),
+    MaterialRoute(page: SkillView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),

@@ -1,3 +1,4 @@
+import 'package:cv_responsive/ui/common/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:cv_responsive/app/app.bottomsheets.dart';
 import 'package:cv_responsive/app/app.dialogs.dart';
@@ -19,12 +20,18 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: Routes.startupView,
+      initialRoute: Routes.homeView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [
         StackedService.routeObserver,
       ],
+      color: kcPrimaryColor,
+      theme: ThemeData(
+        primaryColor: kcPrimaryColor,
+        primaryColorDark: kcPrimaryColorDark,
+        iconTheme: const IconThemeData(color: kcPrimaryColor),
+      ),
     );
   }
 }

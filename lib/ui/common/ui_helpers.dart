@@ -1,7 +1,17 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
+// PADDING
+const double tinyPadding = 5.0;
+const double smallPadding = 10.0;
+const double mediumPadding = 25.0;
+const double largePadding = 50.0;
+const double massivePadding = 120.0;
+
+// BORDER RADIUS
+const double timelineCardRadius = 10.0;
+
+// CONSTANTS SIZE
 const double _tinySize = 5.0;
 const double _smallSize = 10.0;
 const double _mediumSize = 25.0;

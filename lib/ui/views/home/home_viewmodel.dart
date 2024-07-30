@@ -4,25 +4,17 @@ import 'package:cv_responsive/app/app.locator.dart';
 import 'package:cv_responsive/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:url_launcher/url_launcher.dart'; // not remove
 
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
 
-  String get counterLabel => 'Counter is: $_counter';
-
-  int _counter = 0;
-
-  void incrementCounter() {
-    _counter++;
-    rebuildUi();
-  }
-
   void showDialog() {
     _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,
       title: 'Stacked Rocks!',
-      description: 'Give stacked $_counter stars on Github',
+      description: 'Give stacked stars on Github',
     );
   }
 
@@ -32,5 +24,14 @@ class HomeViewModel extends BaseViewModel {
       title: ksHomeBottomSheetTitle,
       description: ksHomeBottomSheetDescription,
     );
+  }
+
+  Future<void> launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.platformDefault,
+    )) {
+      throw Exception('Could not launch $url');
+    }
   }
 }
