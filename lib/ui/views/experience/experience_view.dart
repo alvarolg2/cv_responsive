@@ -2,6 +2,7 @@ import 'package:cv_responsive/ui/common/ui_helpers.dart';
 import 'package:cv_responsive/ui/widgets/common/timeline_card/timeline_card.dart';
 import 'package:cv_responsive/ui/widgets/common/timeline_point/timeline_point.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stacked/stacked.dart';
 
 import 'experience_viewmodel.dart';
@@ -26,8 +27,8 @@ class ExperienceView extends StackedView<ExperienceViewModel> {
             verticalSpaceTiny,
             TimelineCard(
               title: "Oddysey Robotics",
-              leftIcon: Icon(
-                Icons.work_outline,
+              leftIcon: FaIcon(
+                FontAwesomeIcons.userTie,
                 color: Colors.grey,
               ),
               leftSubtitle: "Analista",

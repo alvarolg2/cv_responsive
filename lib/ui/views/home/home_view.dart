@@ -5,6 +5,7 @@ import 'package:cv_responsive/ui/views/education/education_view.dart';
 import 'package:cv_responsive/ui/views/experience/experience_view.dart';
 import 'package:cv_responsive/ui/views/skill/skill_view.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stacked/stacked.dart';
 import 'package:cv_responsive/ui/common/ui_helpers.dart';
 import 'home_viewmodel.dart';
@@ -41,10 +42,14 @@ class HomeView extends StackedView<HomeViewModel> {
                           children: [
                             Column(
                               children: [
-                                const Text(
+                                const Text( // ALG: evitar overflow si texto es más grande
                                   name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    fontWeight: FontWeight.bold
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: kcPrimaryColorDark
                                   ),
                                 ),
                                 Row(
@@ -54,8 +59,10 @@ class HomeView extends StackedView<HomeViewModel> {
                                         //viewModel.launchInBrowser(Uri.parse("mailto:$email?subject=$subject&body=$body"));
                                         viewModel.launchInBrowser(Uri.parse("mailto:$email"));
                                       },
-                                      icon: const Icon(Icons.email_outlined,
-                                          color: kcPrimaryColorDark)),
+                                      icon: const Icon(
+                                        Icons.email_outlined,
+                                      )
+                                    ),
                                     IconButton(
                                       onPressed: () {
                                         viewModel.launchInBrowser(Uri.parse(
@@ -63,20 +70,21 @@ class HomeView extends StackedView<HomeViewModel> {
                                       },
                                       icon: const Icon(
                                         Icons.call_outlined,
-                                        color: kcPrimaryColorDark,
                                       )),
                                     IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.zoom_in_map,
-                                          color: kcPrimaryColorDark)),
+                                      onPressed: () {
+                                        viewModel.launchInBrowser(Uri.parse(github));
+                                      },
+                                      icon: const FaIcon(
+                                        FontAwesomeIcons.github,
+                                      ),
+                                    ),
                                     IconButton(
                                       onPressed: () {
-                                        //viewModel.launchInBrowser(Uri.parse("mailto:$email?subject=$subject&body=$body"));
-                                        viewModel.launchInBrowser(Uri.parse("mailto:$email"));
-
+                                        viewModel.launchInBrowser(Uri.parse(linkedin));
                                       },
-                                      icon: const Icon(Icons.zoom_in_map,
-                                          color: kcPrimaryColorDark)),
+                                      icon: const FaIcon(FontAwesomeIcons.linkedin) 
+                                    ),
                                   ],
                                 ),
                               ],
@@ -88,22 +96,23 @@ class HomeView extends StackedView<HomeViewModel> {
                   ),
                   spacedDivider,
                   const TabBar(
+                    tabAlignment: TabAlignment.start,
                     isScrollable: true, 
                     tabs: [
                       Tab(
-                        icon: Icon(Icons.abc), 
+                        icon:FaIcon(FontAwesomeIcons.user), 
                         text: aboutMe
                       ),
                       Tab(
-                        icon: Icon(Icons.work_outline), 
+                        icon: FaIcon(FontAwesomeIcons.briefcase), 
                         text: experience
                       ),
                       Tab(
-                        icon: Icon(Icons.cast_for_education_outlined),
+                        icon: FaIcon(FontAwesomeIcons.book),
                         text: education
                       ),
                       Tab(
-                        icon: Icon(Icons.add_circle_outlined), 
+                        icon: FaIcon(FontAwesomeIcons.handshakeAngle),
                         text: skills
                       ),
                     ]

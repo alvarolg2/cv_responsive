@@ -12,8 +12,8 @@ class TimelineCard extends StackedView<TimelineCardModel> {
   final String? title;
   final String? leftSubtitle;
   final String? rightSubtitle;
-  final Icon? leftIcon;
-  final Icon? rightIcon;
+  final Widget? leftIcon;
+  final Widget? rightIcon;
   const TimelineCard(
       {this.colorLine = Colors.grey,
       this.height = 200,
