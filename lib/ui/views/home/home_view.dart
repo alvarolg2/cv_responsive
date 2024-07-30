@@ -29,7 +29,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  verticalSpaceLarge,
+                  verticalSpaceSmall,
                   Row(
                     children: [
                       const Expanded(

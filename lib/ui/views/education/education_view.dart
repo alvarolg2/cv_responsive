@@ -15,28 +15,30 @@ class EducationView extends StackedView<EducationViewModel> {
     EducationViewModel viewModel,
     Widget? child,
   ) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: smallPadding),
-      child: Column(
-        children: [
-          TimelinePoint(
-            string: "2022 - 2023",
-          ),
-          verticalSpaceTiny,
-          TimelineCard(
-            title: "Universidad Miguel Hernandez",
-            leftIcon: Icon(
-              Icons.person_2_outlined,
-              color: Colors.grey,
+    return const SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: smallPadding),
+        child: Column(
+          children: [
+            TimelinePoint(
+              string: "2022 - 2023",
             ),
-            leftSubtitle: "Telecomunicaciones",
-            height: 100,
-          ),
-          verticalSpaceTiny,
-          TimelinePoint(
-            string: "2023 - 2024",
-          ),
-        ],
+            verticalSpaceTiny,
+            TimelineCard(
+              title: "Universidad Miguel Hernandez",
+              leftIcon: Icon(
+                Icons.person_2_outlined,
+                color: Colors.grey,
+              ),
+              leftSubtitle: "Telecomunicaciones",
+              height: 100,
+            ),
+            verticalSpaceTiny,
+            TimelinePoint(
+              string: "2023 - 2024",
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -15,28 +15,30 @@ class ExperienceView extends StackedView<ExperienceViewModel> {
     ExperienceViewModel viewModel,
     Widget? child,
   ) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: smallPadding),
-      child: Column(
-        children: [
-          TimelinePoint(
-            string: "2022 - 2023",
-          ),
-          verticalSpaceTiny,
-          TimelineCard(
-            title: "Oddysey Robotics",
-            leftIcon: Icon(
-              Icons.work_outline,
-              color: Colors.grey,
+    return const SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: smallPadding),
+        child: Column(
+          children: [
+            TimelinePoint(
+              string: "2022 - 2023",
             ),
-            leftSubtitle: "Analista",
-            height: 100,
-          ),
-          verticalSpaceTiny,
-          TimelinePoint(
-            string: "2023 - 2024",
-          ),
-        ],
+            verticalSpaceTiny,
+            TimelineCard(
+              title: "Oddysey Robotics",
+              leftIcon: Icon(
+                Icons.work_outline,
+                color: Colors.grey,
+              ),
+              leftSubtitle: "Analista",
+              height: 100,
+            ),
+            verticalSpaceTiny,
+            TimelinePoint(
+              string: "2023 - 2024",
+            ),
+          ],
+        ),
       ),
     );
   }

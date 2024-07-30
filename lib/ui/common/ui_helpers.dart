@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:cv_responsive/ui/common/app_colors.dart';
 import 'package:flutter/material.dart';
 
 // PADDING
@@ -32,7 +33,7 @@ const Widget verticalSpaceMassive = SizedBox(height: _massiveSize);
 Widget spacedDivider = const Column(
   children: <Widget>[
     verticalSpaceMedium,
-    Divider(color: Colors.blueGrey, height: 5.0),
+    Divider(color: kcPrimaryColorDark, height: 5.0),
     verticalSpaceMedium,
   ],
 );

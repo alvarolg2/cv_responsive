@@ -31,6 +31,11 @@ class MainApp extends StatelessWidget {
         primaryColor: kcPrimaryColor,
         primaryColorDark: kcPrimaryColorDark,
         iconTheme: const IconThemeData(color: kcPrimaryColor),
+        tabBarTheme: const TabBarTheme(
+          labelColor: kcPrimaryColor,
+          dividerColor: kcPrimaryColorDark,
+          indicatorColor: kcPrimaryColor
+        )
       ),
     );
   }
