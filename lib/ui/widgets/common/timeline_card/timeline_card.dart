@@ -14,6 +14,7 @@ class TimelineCard extends StackedView<TimelineCardModel> {
   final String? rightSubtitle;
   final Widget? leftIcon;
   final Widget? rightIcon;
+  final VoidCallback? addTap;
   const TimelineCard(
       {this.colorLine = Colors.grey,
       this.height = 200,
@@ -23,6 +24,7 @@ class TimelineCard extends StackedView<TimelineCardModel> {
       this.rightSubtitle,
       this.leftIcon,
       this.rightIcon,
+      this.addTap,
       super.key});
 
   @override
@@ -120,27 +122,30 @@ class TimelineCard extends StackedView<TimelineCardModel> {
                           ),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: kcPrimaryColor,
-                        borderRadius: BorderRadius.horizontal(
-                          right: Radius.circular(
-                              9), // ALG: ver porque no puedo poner 10
-                        ),
-                      ),
-                      child: const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.add_outlined,
-                            color: Colors.white,
+                  addTap != null
+                      ? Expanded(
+                          flex: 1,
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: kcPrimaryColor,
+                              borderRadius: BorderRadius.horizontal(
+                                right: Radius.circular(
+                                    9), // ALG: ver porque no puedo poner 10
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.add_outlined),
+                                  onPressed: () => addTap!(),
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
+                        )
+                      : const SizedBox.shrink(),
                 ],
               ),
             ),

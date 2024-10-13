@@ -42,49 +42,51 @@ class HomeView extends StackedView<HomeViewModel> {
                           children: [
                             Column(
                               children: [
-                                const Text( // ALG: evitar overflow si texto es más grande
+                                const Text(
+                                  // ALG: evitar overflow si texto es más grande
                                   name,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: kcPrimaryColorDark
-                                  ),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: kcPrimaryColorDark),
                                 ),
                                 Row(
                                   children: [
                                     IconButton(
-                                      onPressed: () {
-                                        //viewModel.launchInBrowser(Uri.parse("mailto:$email?subject=$subject&body=$body"));
-                                        viewModel.launchInBrowser(Uri.parse("mailto:$email"));
-                                      },
-                                      icon: const Icon(
-                                        Icons.email_outlined,
-                                      )
-                                    ),
+                                        onPressed: () {
+                                          //viewModel.launchInBrowser(Uri.parse("mailto:$email?subject=$subject&body=$body"));
+                                          viewModel.launchInBrowser(
+                                              Uri.parse("mailto:$email"));
+                                        },
+                                        icon: const Icon(
+                                          Icons.email_outlined,
+                                        )),
+                                    IconButton(
+                                        onPressed: () {
+                                          viewModel.launchInBrowser(
+                                              Uri.parse('tel:$phone'));
+                                        },
+                                        icon: const Icon(
+                                          Icons.call_outlined,
+                                        )),
                                     IconButton(
                                       onPressed: () {
-                                        viewModel.launchInBrowser(Uri.parse(
-                                            'tel:$phone'));
-                                      },
-                                      icon: const Icon(
-                                        Icons.call_outlined,
-                                      )),
-                                    IconButton(
-                                      onPressed: () {
-                                        viewModel.launchInBrowser(Uri.parse(github));
+                                        viewModel
+                                            .launchInBrowser(Uri.parse(github));
                                       },
                                       icon: const FaIcon(
                                         FontAwesomeIcons.github,
                                       ),
                                     ),
                                     IconButton(
-                                      onPressed: () {
-                                        viewModel.launchInBrowser(Uri.parse(linkedin));
-                                      },
-                                      icon: const FaIcon(FontAwesomeIcons.linkedin) 
-                                    ),
+                                        onPressed: () {
+                                          viewModel.launchInBrowser(
+                                              Uri.parse(linkedin));
+                                        },
+                                        icon: const FaIcon(
+                                            FontAwesomeIcons.linkedin)),
                                   ],
                                 ),
                               ],
@@ -96,27 +98,20 @@ class HomeView extends StackedView<HomeViewModel> {
                   ),
                   spacedDivider,
                   const TabBar(
-                    tabAlignment: TabAlignment.start,
-                    isScrollable: true, 
-                    tabs: [
-                      Tab(
-                        icon:FaIcon(FontAwesomeIcons.user), 
-                        text: aboutMe
-                      ),
-                      Tab(
-                        icon: FaIcon(FontAwesomeIcons.briefcase), 
-                        text: experience
-                      ),
-                      Tab(
-                        icon: FaIcon(FontAwesomeIcons.book),
-                        text: education
-                      ),
-                      Tab(
-                        icon: FaIcon(FontAwesomeIcons.handshakeAngle),
-                        text: skills
-                      ),
-                    ]
-                  ),
+                      tabAlignment: TabAlignment.start,
+                      isScrollable: true,
+                      tabs: [
+                        Tab(icon: FaIcon(FontAwesomeIcons.user), text: aboutMe),
+                        Tab(
+                            icon: FaIcon(FontAwesomeIcons.briefcase),
+                            text: experience),
+                        Tab(
+                            icon: FaIcon(FontAwesomeIcons.book),
+                            text: education),
+                        Tab(
+                            icon: FaIcon(FontAwesomeIcons.handshakeAngle),
+                            text: skills),
+                      ]),
                   const Expanded(
                     child: TabBarView(children: [
                       AboutMeView(),

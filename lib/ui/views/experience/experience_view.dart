@@ -1,3 +1,4 @@
+import 'package:cv_responsive/ui/common/app_strings.dart';
 import 'package:cv_responsive/ui/common/ui_helpers.dart';
 import 'package:cv_responsive/ui/widgets/common/timeline_card/timeline_card.dart';
 import 'package:cv_responsive/ui/widgets/common/timeline_point/timeline_point.dart';
@@ -16,27 +17,47 @@ class ExperienceView extends StackedView<ExperienceViewModel> {
     ExperienceViewModel viewModel,
     Widget? child,
   ) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: smallPadding),
+        padding: const EdgeInsets.symmetric(vertical: smallPadding),
         child: Column(
           children: [
-            TimelinePoint(
-              string: "2022 - 2023",
+            const TimelinePoint(
+              string: "$december - 2022 ",
             ),
             verticalSpaceTiny,
             TimelineCard(
               title: "Oddysey Robotics",
-              leftIcon: FaIcon(
+              leftIcon: const FaIcon(
                 FontAwesomeIcons.userTie,
                 color: Colors.grey,
               ),
-              leftSubtitle: "Analista",
+              addTap: () {
+                viewModel.launchInBrowser(Uri.parse(ody));
+              },
+              leftSubtitle: professionalInternships,
               height: 100,
             ),
             verticalSpaceTiny,
-            TimelinePoint(
-              string: "2023 - 2024",
+            const TimelinePoint(
+              string: "$may - 2023",
+            ),
+            verticalSpaceTiny,
+            TimelineCard(
+              title: "Oddysey Robotics",
+              leftIcon: const FaIcon(
+                FontAwesomeIcons.userTie,
+                color: Colors.grey,
+              ),
+              leftSubtitle: analyst,
+              height: 100,
+              addTap: () {
+                viewModel.launchInBrowser(Uri.parse(ody));
+              },
+            ),
+            verticalSpaceTiny,
+            const TimelinePoint(
+              string: present,
             ),
           ],
         ),
