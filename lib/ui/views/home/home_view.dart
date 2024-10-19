@@ -33,8 +33,12 @@ class HomeView extends StackedView<HomeViewModel> {
                   verticalSpaceSmall,
                   Row(
                     children: [
-                      const Expanded(
-                          flex: 1, child: Icon(Icons.account_circle_outlined)),
+                      Expanded(
+                        flex: 1,
+                        child: Image.asset(
+                          'images/photo.png',
+                        ),
+                      ),
                       Expanded(
                         flex: 2,
                         child: Row(
