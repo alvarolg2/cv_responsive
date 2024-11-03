@@ -5,6 +5,8 @@ import 'package:cv_responsive/app/app.dialogs.dart';
 import 'package:cv_responsive/app/app.locator.dart';
 import 'package:cv_responsive/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +23,16 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: Routes.homeView,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('es'), // Spanish
+      ],
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [
@@ -28,18 +40,17 @@ class MainApp extends StatelessWidget {
       ],
       color: kcPrimaryColor,
       theme: ThemeData(
-        primaryColor: kcPrimaryColor,
-        primaryColorDark: kcPrimaryColorDark,
-        iconTheme: const IconThemeData(color: kcPrimaryColor),
-        iconButtonTheme: IconButtonThemeData(
-          style: ButtonStyle(foregroundColor: WidgetStateProperty.all(kcPrimaryColor),)
-        ),
-        tabBarTheme: const TabBarTheme(
-          labelColor: kcPrimaryColor,
-          dividerColor: kcPrimaryColorDark,
-          indicatorColor: kcPrimaryColor
-        )
-      ),
+          primaryColor: kcPrimaryColor,
+          primaryColorDark: kcPrimaryColorDark,
+          iconTheme: const IconThemeData(color: kcPrimaryColor),
+          iconButtonTheme: IconButtonThemeData(
+              style: ButtonStyle(
+            foregroundColor: WidgetStateProperty.all(kcPrimaryColor),
+          )),
+          tabBarTheme: const TabBarTheme(
+              labelColor: kcPrimaryColor,
+              dividerColor: kcPrimaryColorDark,
+              indicatorColor: kcPrimaryColor)),
     );
   }
 }
