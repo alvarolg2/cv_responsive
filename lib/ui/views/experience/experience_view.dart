@@ -5,7 +5,7 @@ import 'package:cv_responsive/ui/widgets/common/timeline_point/timeline_point.da
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stacked/stacked.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'experience_viewmodel.dart';
 
 class ExperienceView extends StackedView<ExperienceViewModel> {
@@ -17,13 +17,14 @@ class ExperienceView extends StackedView<ExperienceViewModel> {
     ExperienceViewModel viewModel,
     Widget? child,
   ) {
+    AppLocalizations t = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: smallPadding),
         child: Column(
           children: [
-            const TimelinePoint(
-              string: "$december - 2022 ",
+            TimelinePoint(
+              string: "${t.december} - 2022 ",
             ),
             verticalSpaceTiny,
             TimelineCard(
@@ -35,12 +36,12 @@ class ExperienceView extends StackedView<ExperienceViewModel> {
               addTap: () {
                 viewModel.launchInBrowser(Uri.parse(ody));
               },
-              leftSubtitle: professionalInternships,
+              leftSubtitle: t.internship,
               height: 100,
             ),
             verticalSpaceTiny,
-            const TimelinePoint(
-              string: "$may - 2023",
+            TimelinePoint(
+              string: "${t.may} - 2023",
             ),
             verticalSpaceTiny,
             TimelineCard(
@@ -49,15 +50,15 @@ class ExperienceView extends StackedView<ExperienceViewModel> {
                 FontAwesomeIcons.userTie,
                 color: Colors.grey,
               ),
-              leftSubtitle: analyst,
+              leftSubtitle: t.programmingAnalyst,
               height: 100,
               addTap: () {
                 viewModel.launchInBrowser(Uri.parse(ody));
               },
             ),
             verticalSpaceTiny,
-            const TimelinePoint(
-              string: present,
+            TimelinePoint(
+              string: t.present,
             ),
           ],
         ),

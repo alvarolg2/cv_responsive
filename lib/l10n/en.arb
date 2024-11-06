@@ -1,7 +1,14 @@
 {
   "@@locale": "en",
   "helloWorld": "Hello World",
-  "@helloWorld": {
-    "description": "Greeting message"
-  }
+  "aboutMe": "About me",
+  "experience": "Experience",
+  "education": "Education",
+  "skills": "Skills",
+  "internship": "Internship",
+  "programmingAnalyst": "Programming Analyst",
+  "present": "Present",
+  "december": "December",
+  "may": "May",
+  "telecommunications": "Telecommunications"
 }

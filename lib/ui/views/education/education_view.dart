@@ -5,7 +5,7 @@ import 'package:cv_responsive/ui/widgets/common/timeline_point/timeline_point.da
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stacked/stacked.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'education_viewmodel.dart';
 
 class EducationView extends StackedView<EducationViewModel> {
@@ -17,6 +17,7 @@ class EducationView extends StackedView<EducationViewModel> {
     EducationViewModel viewModel,
     Widget? child,
   ) {
+    AppLocalizations t = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: smallPadding),
@@ -35,7 +36,7 @@ class EducationView extends StackedView<EducationViewModel> {
               addTap: () {
                 viewModel.launchInBrowser(Uri.parse(github));
               },
-              leftSubtitle: "Telecomunicaciones",
+              leftSubtitle: t.telecommunications,
               height: 100,
             ),
             verticalSpaceTiny,

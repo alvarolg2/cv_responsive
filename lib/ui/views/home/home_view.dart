@@ -25,110 +25,149 @@ class HomeView extends StackedView<HomeViewModel> {
       length: 4,
       child: Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: mediumPadding),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  verticalSpaceSmall,
-                  Row(
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: mediumPadding),
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Expanded(
-                        flex: 1,
-                        child: Image.asset(
-                          'images/photo.png',
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
+                      verticalSpaceSmall,
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: Image.asset(
+                              'images/photo.png',
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text(
-                                  // ALG: evitar overflow si texto es más grande
-                                  name,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      color: kcPrimaryColorDark),
-                                ),
-                                Row(
+                                Column(
                                   children: [
-                                    IconButton(
-                                        onPressed: () {
-                                          //viewModel.launchInBrowser(Uri.parse("mailto:$email?subject=$subject&body=$body"));
-                                          viewModel.launchInBrowser(
-                                              Uri.parse("mailto:$email"));
-                                        },
-                                        icon: const Icon(
-                                          Icons.email_outlined,
-                                        )),
-                                    IconButton(
-                                        onPressed: () {
-                                          viewModel.launchInBrowser(
-                                              Uri.parse('tel:$phone'));
-                                        },
-                                        icon: const Icon(
-                                          Icons.call_outlined,
-                                        )),
-                                    IconButton(
-                                      onPressed: () {
-                                        viewModel
-                                            .launchInBrowser(Uri.parse(github));
-                                      },
-                                      icon: const FaIcon(
-                                        FontAwesomeIcons.github,
-                                      ),
+                                    const Text(
+                                      // ALG: evitar overflow si texto es más grande
+                                      name,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: kcPrimaryColorDark),
                                     ),
-                                    IconButton(
-                                        onPressed: () {
-                                          viewModel.launchInBrowser(
-                                              Uri.parse(linkedin));
-                                        },
-                                        icon: const FaIcon(
-                                            FontAwesomeIcons.linkedin)),
+                                    Row(
+                                      children: [
+                                        IconButton(
+                                            onPressed: () {
+                                              viewModel.launchInBrowser(
+                                                  Uri.parse("mailto:$email"));
+                                            },
+                                            icon: const Icon(
+                                              Icons.email_outlined,
+                                            )),
+                                        IconButton(
+                                            onPressed: () {
+                                              viewModel.launchInBrowser(
+                                                  Uri.parse('tel:$phone'));
+                                            },
+                                            icon: const Icon(
+                                              Icons.call_outlined,
+                                            )),
+                                        IconButton(
+                                          onPressed: () {
+                                            viewModel.launchInBrowser(
+                                                Uri.parse(github));
+                                          },
+                                          icon: const FaIcon(
+                                            FontAwesomeIcons.github,
+                                          ),
+                                        ),
+                                        IconButton(
+                                            onPressed: () {
+                                              viewModel.launchInBrowser(
+                                                  Uri.parse(linkedin));
+                                            },
+                                            icon: const FaIcon(
+                                                FontAwesomeIcons.linkedin)),
+                                      ],
+                                    ),
                                   ],
-                                ),
+                                )
                               ],
-                            )
-                          ],
-                        ),
-                      )
+                            ),
+                          )
+                        ],
+                      ),
+                      spacedDivider,
+                      TabBar(
+                          tabAlignment: TabAlignment.start,
+                          isScrollable: true,
+                          tabs: [
+                            Tab(
+                                icon: const FaIcon(FontAwesomeIcons.user),
+                                text: t.aboutMe),
+                            Tab(
+                                icon: const FaIcon(FontAwesomeIcons.briefcase),
+                                text: t.experience),
+                            Tab(
+                                icon: const FaIcon(FontAwesomeIcons.book),
+                                text: t.education),
+                            Tab(
+                                icon: const FaIcon(
+                                    FontAwesomeIcons.handshakeAngle),
+                                text: t.skills),
+                          ]),
+                      const Expanded(
+                        child: TabBarView(children: [
+                          AboutMeView(),
+                          ExperienceView(),
+                          EducationView(),
+                          SkillView(),
+                        ]),
+                      ),
                     ],
                   ),
-                  spacedDivider,
-                  const TabBar(
-                      tabAlignment: TabAlignment.start,
-                      isScrollable: true,
-                      tabs: [
-                        Tab(icon: FaIcon(FontAwesomeIcons.user), text: aboutMe),
-                        Tab(
-                            icon: FaIcon(FontAwesomeIcons.briefcase),
-                            text: experience),
-                        Tab(
-                            icon: FaIcon(FontAwesomeIcons.book),
-                            text: education),
-                        Tab(
-                            icon: FaIcon(FontAwesomeIcons.handshakeAngle),
-                            text: skills),
-                      ]),
-                  const Expanded(
-                    child: TabBarView(children: [
-                      AboutMeView(),
-                      ExperienceView(),
-                      EducationView(),
-                      SkillView(),
-                    ]),
-                  ),
-                ],
+                ),
               ),
-            ),
+              Align(
+                alignment: Alignment.topRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButton<Locale>(
+                    value: viewModel.supportedLocales.firstWhere(
+                      (locale) =>
+                          locale.languageCode ==
+                          (viewModel.currentLocale.languageCode),
+                      orElse: () => viewModel.supportedLocales.first,
+                    ),
+                    items: viewModel.supportedLocales.map((locale) {
+                      return DropdownMenuItem<Locale>(
+                        value: locale,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              viewModel.flags[locale.languageCode]!,
+                              width: 24,
+                              height: 24,
+                            ),
+                          ],
+                        ),
+                      );
+                    }).toList(),
+                    onChanged: (Locale? newLocale) {
+                      if (newLocale != null) {
+                        viewModel.changeLanguage(newLocale);
+                      }
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

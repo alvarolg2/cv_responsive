@@ -8,6 +8,7 @@ import 'package:cv_responsive/ui/views/about_me/about_me_view.dart';
 import 'package:cv_responsive/ui/views/experience/experience_view.dart';
 import 'package:cv_responsive/ui/views/education/education_view.dart';
 import 'package:cv_responsive/ui/views/skill/skill_view.dart';
+import 'package:cv_responsive/services/language_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -24,7 +25,8 @@ import 'package:cv_responsive/ui/views/skill/skill_view.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    // @stacked-service
+    LazySingleton(classType: LanguageService),
+// @stacked-service
   ],
   bottomsheets: [
     StackedBottomsheet(classType: NoticeSheet),

@@ -30,5 +30,6 @@ flutter:
   uses-material-design: true
   assets:
     - images/photo.png
+    - images/flags/
 flutter_intl:
   enabled: true

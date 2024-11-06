@@ -12,8 +12,7 @@ class SkillView extends StackedView<SkillViewModel> {
     SkillViewModel viewModel,
     Widget? child,
   ) {
-    return Container(
-    );
+    return Container();
   }
 
   @override
