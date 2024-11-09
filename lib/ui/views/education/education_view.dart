@@ -28,7 +28,7 @@ class EducationView extends StackedView<EducationViewModel> {
             ),
             verticalSpaceTiny,
             TimelineCard(
-              title: "Universidad Miguel Hernandez",
+              title: t.universityMiguelHernandez,
               leftIcon: const FaIcon(
                 FontAwesomeIcons.chalkboardUser,
                 color: Colors.grey,
