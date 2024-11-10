@@ -97,11 +97,13 @@ class TimelineCard extends StackedView<TimelineCardModel> {
                                         color: kcPrimaryColor,
                                       ),
                                   horizontalSpaceTiny,
-                                  Text(
-                                    leftSubtitle ?? "",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                        color: kcPrimaryColor, fontSize: 14),
+                                  Expanded(
+                                    child: Text(
+                                      leftSubtitle ?? "",
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: kcPrimaryColor, fontSize: 14),
+                                    ),
                                   ),
                                   rightSubtitle == null
                                       ? const SizedBox.shrink()
