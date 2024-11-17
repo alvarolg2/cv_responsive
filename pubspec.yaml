@@ -1,7 +1,7 @@
 name: cv_responsive
 description: CV responsive.
 publish_to: 'none'
-version: 0.0.2-beta+2
+version: 0.0.7-beta+7
 
 environment:
   sdk: '>=3.0.3 <4.0.0'

@@ -15,7 +15,7 @@ class StartupViewModel extends BaseViewModel {
   Future runStartupLogic() async {
     await checkForUpdate();
     if (_updateInfo?.updateAvailability == UpdateAvailability.updateAvailable) {
-      InAppUpdate.performImmediateUpdate();
+      await InAppUpdate.performImmediateUpdate();
     }
 
     // This is where you can make decisions on where your app should navigate when

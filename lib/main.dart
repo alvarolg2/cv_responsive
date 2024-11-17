@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
         builder: (context, language, child) {
           return MaterialApp(
             locale: language.locale,
-            initialRoute: Routes.homeView,
+            initialRoute: Routes.startupView,
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
