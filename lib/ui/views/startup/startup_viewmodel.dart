@@ -15,6 +15,7 @@ class StartupViewModel extends BaseViewModel {
   Future runStartupLogic() async {
     await checkForUpdate();
     if (_updateInfo?.updateAvailability == UpdateAvailability.updateAvailable) {
+      // ALG: revisar
       await InAppUpdate.performImmediateUpdate();
     }
 
