@@ -5,6 +5,7 @@ import 'package:cv_responsive/app/app.bottomsheets.dart';
 import 'package:cv_responsive/app/app.dialogs.dart';
 import 'package:cv_responsive/app/app.locator.dart';
 import 'package:cv_responsive/app/app.router.dart';
+import 'package:flutter/services.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -15,7 +16,10 @@ Future<void> main() async {
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
-  runApp(const MainApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(const MainApp());
+  });
 }
 
 class MainApp extends StatelessWidget {
