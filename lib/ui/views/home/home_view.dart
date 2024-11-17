@@ -45,60 +45,63 @@ class HomeView extends StackedView<HomeViewModel> {
                           ),
                           Expanded(
                             flex: 2,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Column(
-                                  children: [
-                                    const Text(
-                                      // ALG: evitar overflow si texto es más grande
-                                      name,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
-                                          color: kcPrimaryColorDark),
-                                    ),
-                                    Row(
-                                      children: [
-                                        IconButton(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    children: [
+                                      const Text(
+                                        // ALG: evitar overflow si texto es más grande
+                                        name,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                            color: kcPrimaryColorDark),
+                                      ),
+                                      Row(
+                                        children: [
+                                          IconButton(
+                                              onPressed: () {
+                                                viewModel.launchInBrowser(
+                                                    Uri.parse("mailto:$email"));
+                                              },
+                                              icon: const Icon(
+                                                Icons.email_outlined,
+                                              )),
+                                          IconButton(
+                                              onPressed: () {
+                                                viewModel.launchInBrowser(
+                                                    Uri.parse('tel:$phone'));
+                                              },
+                                              icon: const Icon(
+                                                Icons.call_outlined,
+                                              )),
+                                          IconButton(
                                             onPressed: () {
                                               viewModel.launchInBrowser(
-                                                  Uri.parse("mailto:$email"));
-                                            },
-                                            icon: const Icon(
-                                              Icons.email_outlined,
-                                            )),
-                                        IconButton(
-                                            onPressed: () {
-                                              viewModel.launchInBrowser(
-                                                  Uri.parse('tel:$phone'));
-                                            },
-                                            icon: const Icon(
-                                              Icons.call_outlined,
-                                            )),
-                                        IconButton(
-                                          onPressed: () {
-                                            viewModel.launchInBrowser(
-                                                Uri.parse(github));
-                                          },
-                                          icon: const FaIcon(
-                                            FontAwesomeIcons.github,
-                                          ),
-                                        ),
-                                        IconButton(
-                                            onPressed: () {
-                                              viewModel.launchInBrowser(
-                                                  Uri.parse(linkedin));
+                                                  Uri.parse(github));
                                             },
                                             icon: const FaIcon(
-                                                FontAwesomeIcons.linkedin)),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
+                                              FontAwesomeIcons.github,
+                                            ),
+                                          ),
+                                          IconButton(
+                                              onPressed: () {
+                                                viewModel.launchInBrowser(
+                                                    Uri.parse(linkedin));
+                                              },
+                                              icon: const FaIcon(
+                                                  FontAwesomeIcons.linkedin)),
+                                        ],
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           )
                         ],
