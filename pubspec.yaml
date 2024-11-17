@@ -1,7 +1,7 @@
 name: cv_responsive
-description: A new Flutter project.
+description: CV responsive.
 publish_to: 'none'
-version: 0.1.0
+version: 0.0.2-beta
 
 environment:
   sdk: '>=3.0.3 <4.0.0'
